@@ -44,7 +44,7 @@ src/test/java
 3. Install Maven dependencies
 4. Run TestNG test classes
 
-## Credentials Used
+## Credentials Used 
 
 Username: standard_user
 Password: secret_sauce
