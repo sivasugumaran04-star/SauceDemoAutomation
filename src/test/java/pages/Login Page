@@ -1,1 +1,37 @@
+package Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+public class LoginPage {
+
+
+	WebDriver driver;
+	public  LoginPage (WebDriver driver) {
+
+		 this.driver=driver;
+		 PageFactory.initElements(driver,this);
+	}
+	
+	 @FindBy(name="user-name")
+	 private WebElement username;
+	 @FindBy(id="password")
+	 private WebElement password;
+	 @FindBy(xpath="//input[@type='submit']")
+	 private WebElement lbtn;
+	 
+	 public void login(String username,String password ) {
+
+		  this.username.sendKeys(username);
+		  this.password.sendKeys(password);
+		  lbtn.click();
+		  String ep="Products";
+		  String at = driver.findElement(By.xpath("//span[text()='Products']")).getText();
+		  Assert.assertEquals(ep,at,"Login Successfully");
+	 }
+}
 
